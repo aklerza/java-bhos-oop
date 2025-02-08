@@ -1,9 +1,15 @@
 public class Pet {
-    public String species;
-    public String nickname;
-    public int age;
-    public int trickLevel;
-    public String[] habits;
+    private String species;
+    private String nickname;
+    private int age;
+    private int trickLevel;
+    private String[] habits;
+
+    public String getSpecies() { return this.species; }
+    public String getNickname() { return this.nickname; }
+    public int getAge() {return this.age; }
+    public int getTricklevel() { return this.trickLevel; }
+    public String getHabits() { return String.join(", ", this.habits); }
 
     // all fields
     public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
