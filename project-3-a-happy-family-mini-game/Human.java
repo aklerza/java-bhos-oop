@@ -73,29 +73,17 @@ public class Human {
         this.family = family;
     }
 
-    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father, String[][] schedule) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-        this.iq = iq;
-        this.pet = pet;
-        this.mother = mother;
-        this.father = father;
-        this.schedule = schedule;
-    }
-
-    public Human(String name, String surname, int year, Human mother, Human father) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-        this.mother = mother;
-        this.father = father;
-    }
-
     public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
         this.year = year;
+    }
+
+    public Human(String name, String surname, int year, int iq, String[][] schedule) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.schedule = schedule;
     }
 
     public Human() {
