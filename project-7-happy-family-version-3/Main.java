@@ -1,6 +1,8 @@
 public class Main {
     public static void main(String[] args) {
 
+
+
         // bro what the hell of the meaning of this ``Create the right amount of loops in the Main class of the Human object so that the garbage collector would start deleting old objects (from 10 thousand until 10 million, depending on the amount of free ram)``
         // why we are going too detail :cry:
 
