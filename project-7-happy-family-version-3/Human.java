@@ -90,18 +90,22 @@ public class Human {
         this.schedule = schedule;
     }
 
+    public Human(String name) {
+        this.name = name;
+    }
+
     public Human() {
     }
 
     public void greetPet() {
-        System.out.println("Hello, " + pet.getNickname());
+        System.out.println("Hello, " + this.family.getPet().getNickname());
     }
 
     public void describePet() {
-        if (pet.getTricklevel() > 50) {
-            System.out.println("I have an " + pet.getSpecies() + " is " + pet.getAge() + " years old, he is " + "very sly");
+        if (this.family.getPet().getTricklevel() > 50) {
+            System.out.println("I have an " + this.family.getPet().getSpecies() + " is " + this.family.getPet().getAge() + " years old, he is " + "very sly");
         } else {
-            System.out.println("I have an " + pet.getSpecies() + " is " + pet.getAge() + " years old, he is " + "almost not sly");
+            System.out.println("I have an " + this.family.getPet().getSpecies() + " is " + this.family.getPet().getAge() + " years old, he is " + "almost not sly");
         }
     }
 

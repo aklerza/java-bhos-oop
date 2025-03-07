@@ -4,15 +4,14 @@ enum Species {
     CAT, DOG, ELEPHANT, TIGER, FLOPPA, POORPET
 }
 
-public class Pet {
-
+public class Pet implements AutoCloseable {
     private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
     private String[] habits;
 
-    public String getSpecies() {
+    public Species getSpecies() {
         return this.species;
     }
 
@@ -43,7 +42,11 @@ public class Pet {
 
     // all fields but another
     public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
-        this.species = species;
+        try {
+            this.species = Species.valueOf(species.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            this.species = Species.POORPET;
+        }
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -54,14 +57,11 @@ public class Pet {
     public Pet(String nickname, String species) {
         this.species = Species.POORPET;
         this.nickname = nickname;
-        this.species = species;
-    }
-
-    // only nickname and but another species
-    public Pet(String nickname, Species species) {
-        this.species = Species.POORPET;
-        this.nickname = nickname;
-        this.species = species;
+        try {
+            this.species = Species.valueOf(species.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            this.species = Species.POORPET;
+        }
     }
 
     // empty constructor
@@ -112,8 +112,12 @@ public class Pet {
     }
 
     // override for finalize
+    public void cleanUp() {
+        System.out.println("oh no! family is removed bro");
+    }
+
     @Override
-    protected void finalize() throws Throwable {
-        System.out.println("pet is removed bro");
+    public void close() {
+        cleanUp();
     }
 }
